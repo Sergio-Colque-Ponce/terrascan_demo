@@ -14,7 +14,8 @@ jobs:
 
       - name: Install Terrascan
         run: |
-          curl -L https://github.com/tenable/terrascan/releases/latest/download/terrascan_linux_amd64 -o terrascan
+          curl -L "$(curl -s https://api.github.com/repos/tenable/terrascan/releases/latest | grep browser_download_url | grep linux_amd64.tar.gz | cut -d '"' -f 4)" -o terrascan.tar.gz
+          tar -xzf terrascan.tar.gz terrascan
           chmod +x terrascan
           sudo mv terrascan /usr/local/bin/
 
