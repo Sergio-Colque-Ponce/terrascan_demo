@@ -5,4 +5,8 @@ provider "aws" {
 resource "aws_s3_bucket" "example" {
   bucket = "my-secure-bucket"
   acl    = "private" # ✅ Private access only
+
+  versioning {
+    enabled = true # ✅ Habilitar versioning para recuperaciones
+  }
 }
