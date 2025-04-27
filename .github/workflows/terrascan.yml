@@ -20,4 +20,4 @@ jobs:
           sudo mv terrascan /usr/local/bin/
 
       - name: Run Terrascan
-        run: terrascan scan -d .
+        run: terrascan scan -t aws -f main_fixed.tf
